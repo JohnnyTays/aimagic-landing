@@ -3,90 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Magic Mentor | Your Personal Guide to the Art of Astonishment</title>
-    <meta name="description" content="AI-powered magic mentor that generates custom tricks, coaches your performance, and teaches magic history. From beginner to professional.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="AI Magic Mentor | Your Personal Guide to the Art of Astonishment">
-    <meta property="og:description" content="Generate custom magic tricks, get performance coaching, and explore magic history with AI.">
-    <meta property="og:type" content="website">
-    
-    <!-- Fonts -->
+    <title>AI Magic Mentor — Your Personal Guide to the Art of Astonishment</title>
+    <meta name="description" content="Generate custom magic tricks tailored to your skill level. Get performance coaching from AI. Uncover the secrets of history's greatest illusionists.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #7C3AED;
-            --primary-dark: #6D28D9;
-            --secondary: #1E1B4B;
-            --accent: #F59E0B;
-            --light: #F8F5FF;
-            --dark: #0F0F1A;
-            --gray: #64748B;
+            --mystic-purple: #1a0a2e;
+            --deep-purple: #2d1b4e;
+            --magic-gold: #d4af37;
+            --magic-gold-light: #f4d03f;
+            --theater-red: #8b0000;
+            --silk-white: #f5f5f5;
+            --shadow-black: #0a0a0a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--dark);
-            color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Crimson Text', serif;
+            background: var(--mystic-purple);
+            color: var(--silk-white);
+            line-height: 1.7;
+            min-height: 100vh;
         }
         
-        /* Magical Background */
-        .bg-pattern {
+        .bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            inset: 0;
             background: 
-                radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, var(--dark) 0%, #0D0D14 100%);
+                radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--mystic-purple) 0%, var(--shadow-black) 100%);
+            z-index: -1;
         }
         
-        /* Stars Animation */
         .stars {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+            inset: 0;
+            background-image: 
+                radial-gradient(1px 1px at 20% 30%, rgba(212,175,55,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 40% 70%, rgba(212,175,55,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 60% 20%, rgba(212,175,55,0.2) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 60%, rgba(212,175,55,0.3) 0%, transparent 100%);
             z-index: -1;
         }
         
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s ease-in-out infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-        
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 5%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -94,535 +62,392 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 700;
             font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
         }
         
         .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent), #D97706);
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--magic-gold), var(--magic-gold-light));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+            font-size: 1.3rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
         
         .nav-links {
             display: flex;
             gap: 2rem;
-            align-items: center;
+            list-style: none;
         }
         
         .nav-links a {
-            color: rgba(255,255,255,0.7);
+            color: var(--silk-white);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            transition: all 0.3s;
         }
         
         .nav-links a:hover {
-            color: var(--accent);
+            opacity: 1;
+            color: var(--magic-gold);
         }
         
-        .btn {
+        .hero {
+            padding: 4rem 5% 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        h1 span {
+            color: var(--magic-gold);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        .hero > p {
+            font-size: 1.25rem;
+            color: rgba(245, 245, 245, 0.8);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            font-style: italic;
+        }
+        
+        .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 700;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--magic-gold), var(--magic-gold-light));
+            color: var(--mystic-purple);
+            padding: 1.1rem 2.5rem;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
             font-size: 1rem;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(124, 58, 237, 0.5);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero-content {
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-family: 'Cinzel', serif;
-        }
-        
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--accent), #FBBF24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            font-family: 'Cinzel', serif;
-        }
-        
-        .section-header p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 2.5rem;
+            text-decoration: none;
+            letter-spacing: 0.1em;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
         }
         
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            opacity: 0;
-            transition: opacity 0.3s;
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.5);
         }
         
-        .feature-card:hover {
+        .section {
+            padding: 3rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.15em;
+            color: var(--magic-gold);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tool-card {
+            background: linear-gradient(145deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+        }
+        
+        .tool-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
-            background: rgba(124, 58, 237, 0.05);
+            border-color: var(--magic-gold);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
         
-        .feature-card:hover::before {
-            opacity: 1;
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
         
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        .tool-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--silk-white);
+        }
+        
+        .tool-card p {
+            color: rgba(245, 245, 245, 0.7);
+            font-size: 0.95rem;
+        }
+        
+        .demo-section {
+            background: linear-gradient(180deg, transparent, rgba(45, 27, 78, 0.3));
+            padding: 4rem 5%;
+        }
+        
+        .demo-box {
+            background: var(--deep-purple);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .demo-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--magic-gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .trick-name {
+            font-size: 1.8rem;
+            color: var(--magic-gold-light);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .trick-section {
             margin-bottom: 1.5rem;
         }
         
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
+        .trick-section h4 {
             font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(212, 175, 55, 0.8);
+            margin-bottom: 0.5rem;
         }
         
-        .feature-card p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1rem;
-        }
-        
-        /* Demo Section */
-        .demo {
-            padding: 6rem 5%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .demo-window {
-            background: #1A1A2E;
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .demo-header {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .demo-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .demo-dot.red { background: #FF5F56; }
-        .demo-dot.yellow { background: #FFBD2E; }
-        .demo-dot.green { background: #27CA40; }
-        
-        .demo-content {
-            background: linear-gradient(135deg, #1e1b4b, #312e81);
-            border-radius: 12px;
-            padding: 2rem;
-            min-height: 300px;
-        }
-        
-        .demo-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .demo-text {
-            color: rgba(255,255,255,0.8);
+        .trick-section p {
             font-size: 0.95rem;
-            line-height: 1.8;
+            line-height: 1.7;
+            color: rgba(245, 245, 245, 0.85);
         }
         
-        .demo-text strong {
-            color: var(--accent);
+        .trick-section ul {
+            list-style: none;
+            padding-left: 0;
         }
         
-        /* Skill Levels */
-        .levels {
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .trick-section li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(245, 245, 245, 0.85);
+            font-size: 0.95rem;
+        }
+        
+        .trick-section li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--magic-gold);
         }
         
         .levels-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
-            margin-top: 3rem;
+            margin: 2rem 0;
         }
         
         .level-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
+            padding: 1.25rem;
             text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .level-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
         }
         
         .level-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .level-card h4 {
-            font-size: 0.9rem;
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
         
-        .level-card p {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 6rem 5%;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
+        .level-card h4 {
             font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
         }
         
-        .cta p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
+        .level-card p {
+            font-size: 0.8rem;
+            color: rgba(245, 245, 245, 0.6);
         }
         
-        /* Footer */
         footer {
-            padding: 3rem 5%;
+            padding: 2.5rem;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.4);
-            font-size: 0.875rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            margin-top: 3rem;
         }
         
-        /* Mobile */
+        footer p {
+            color: rgba(245, 245, 245, 0.5);
+            font-size: 0.85rem;
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .levels-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .tools-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    <div class="stars" id="stars"></div>
+    <div class="bg"></div>
+    <div class="stars"></div>
     
     <nav>
         <div class="logo">
             <div class="logo-icon">🎩</div>
-            <span>AI Magic Mentor</span>
+            <span>MAGIC MENTOR</span>
         </div>
-        <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#pricing">For Mentors</a>
-            <a href="https://ai-magic-mentor.pages.dev/" class="btn btn-outline">Open App</a>
-            <a href="https://ai-magic-mentor.pages.dev/" class="btn btn-primary">Start Learning</a>
-        </div>
+        <ul class="nav-links">
+            <li><a href="#tools">Grimoire</a></li>
+            <li><a href="#demo">Manifest</a></li>
+            <li><a href="https://ai-magic-mentor.pages.dev/">Enter</a></li>
+        </ul>
     </nav>
     
     <section class="hero">
-        <div class="hero-content">
-            <div class="badge">✨ AI-Powered Magic Education</div>
-            <h1>Your Personal Guide to the<br><span>Art of Astonishment</span></h1>
-            <p>Generate custom magic tricks tailored to your skill level, get performance coaching from AI, and uncover the secrets of history's greatest illusionists.</p>
-            
-            <div class="hero-buttons">
-                <a href="https://ai-magic-mentor.pages.dev/" class="btn btn-primary">Start Learning Magic →</a>
-                <a href="https://ai-magic-mentor.pages.dev/" class="btn btn-outline">Explore Features</a>
-            </div>
-        </div>
+        <h1>From <span>Spark</span> to <span>Astonishment</span></h1>
+        <p>"The secret of magic lies not in the trick itself, but in the story you tell while performing it."</p>
+        <a href="https://ai-magic-mentor.pages.dev/" target="_blank" class="cta-button">
+            🎩 Begin Your Transformation
+        </a>
     </section>
     
-    <section class="features" id="features">
-        <div class="section-header">
-            <h2>Four Paths to Magic Mastery</h2>
-            <p>From creating your first trick to performing for crowds, AI guides your journey.</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎩</div>
-                <h3>Trick Generator</h3>
-                <p>Describe your idea—AI creates a complete magic trick with step-by-step instructions, timing, and patter. Choose from 15+ effects including vanish, levitation, mentalism, and more.</p>
+    <section class="section" id="tools">
+        <h2 class="section-title">The Four Pillars of Power</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🪄</div>
+                <h3>Trick Architect</h3>
+                <p>Describe your vision. AI weaves the method, timing, and patter into a complete performance ready for any audience.</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
+            <div class="tool-card">
+                <div class="tool-icon">🔮</div>
                 <h3>Object Scanner</h3>
-                <p>Have props but no ideas? Describe what you have—a deck of cards, coins, handkerchiefs—and AI reveals the hidden magical potential and tricks you can perform.</p>
+                <p>Have props gathering dust? A deck, some coins, a borrowed watch — reveal the hidden potential within.</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎭</div>
+            <div class="tool-card">
+                <div class="tool-icon">🎭</div>
                 <h3>Performance Coach</h3>
-                <p>Overcome stage fright and refine your stagecraft. Get personalized advice on stage presence, handling hecklers, confidence building, and practice routines.</p>
+                <p>Master the art of presence. Overcome stage fright. Learn to command a room like the great illusionists.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">📜</div>
+                <h3>Arcane Archives</h3>
+                <p>Trace the lineage of wonder from ancient Egypt to the modern masters. Know the history. Own the secrets.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="demo-section">
+        <div class="demo-box">
+            <span class="demo-label">⚡ Live Manifest: Generated in 12 Seconds</span>
+            
+            <h3 class="trick-name">"The Auricular Transit"</h3>
+            
+            <div class="trick-section">
+                <h4>The Effect</h4>
+                <p>A single silver dollar. One moment it's in your hand — the next, vanished into thin air. Then, with a delicate gesture, it materializes from behind the spectator's own ear. The coin chose them.</p>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">📜</div>
-                <h3>Magic History</h3>
-                <p>Uncover the legends and secrets of the world's greatest illusionists. From ancient Egypt to David Blaine, explore the evolution of the art of astonishment.</p>
+            <div class="trick-section">
+                <h4>The Method (Sleights Required)</h4>
+                <ul>
+                    <li><strong>Retention of Vision Vanish</strong> — The optical illusion that makes the brain see what isn't there</li>
+                    <li><strong>Finger Palm</strong> — The cornerstone of all coin magic</li>
+                    <li><strong>The Ramsay Subtlety</strong> — Pointing at your "empty" hand to sell the lie</li>
+                    <li><strong>The Grip Change</strong> — Shifting the coin from hiding to reveal position mid-flight</li>
+                </ul>
+            </div>
+            
+            <div class="trick-section">
+                <h4>Presentation & Patter</h4>
+                <p>"They say wealth is fleeting... but money doesn't disappear. It travels. It follows the path of least resistance. If you watch closely, you can see the moment it loses its grip on the physical world."</p>
+            </div>
+            
+            <div class="trick-section">
+                <h4>The Psychology</h4>
+                <p>By speaking of "listening," you prime the spectator's attention toward their ears before the coin appears. Misdirection isn't about deception — it's about inevitability.</p>
             </div>
         </div>
     </section>
     
-    <section class="demo" id="how-it-works">
-        <div class="section-header">
-            <h2>Sample: Performance Coaching</h2>
-            <p>Real AI-generated advice on stage presence.</p>
-        </div>
-        
-        <div class="demo-window">
-            <div class="demo-header">
-                <div class="demo-dot red"></div>
-                <div class="demo-dot yellow"></div>
-                <div class="demo-dot green"></div>
-            </div>
-            <div class="demo-content">
-                <div class="demo-title">Coach's Advice: Stage Presence</div>
-                <div class="demo-text">
-                    <strong>Stage presence isn't something you are born with;</strong> it is a suite of skills you inhabit. High Status performers move with purpose and aren't hurried by the audience's gaze.<br><br>
-                    <strong>The "Entitlement" Mindset:</strong> You must believe you have the absolute right to be there. This psychological shift prevents "fidgeting"—the subconscious attempt to apologize for taking up people's time.<br><br>
-                    <strong>The 3-Second Rule:</strong> Don't just scan the room; look at individuals. Hold eye contact for about three seconds—long enough to register a connection, but not long enough to make it a confrontation.
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="levels">
-        <div class="section-header">
-            <h2>Tailored to Your Level</h2>
-            <p>Whether you've never held a deck of cards or perform for money, AI adapts to you.</p>
-        </div>
-        
+    <section class="section">
+        <h2 class="section-title">Your Current Station</h2>
         <div class="levels-grid">
             <div class="level-card">
                 <div class="level-icon">🌱</div>
                 <h4>Complete Beginner</h4>
-                <p>Never done magic before</p>
+                <p>Never held a deck</p>
             </div>
-            
             <div class="level-card">
                 <div class="level-icon">🌿</div>
-                <h4>Beginner</h4>
-                <p>Know a few basic tricks</p>
+                <h4>Apprentice</h4>
+                <p>Knows a few basics</p>
             </div>
-            
             <div class="level-card">
                 <div class="level-icon">🌳</div>
-                <h4>Intermediate</h4>
-                <p>Can perform confidently</p>
+                <h4>Journeyman</h4>
+                <p>Performs for friends</p>
             </div>
-            
             <div class="level-card">
                 <div class="level-icon">⭐</div>
-                <h4>Advanced</h4>
-                <p>Years of experience</p>
+                <h4>Virtuoso</h4>
+                <p>Years of mastery</p>
             </div>
-            
             <div class="level-card">
                 <div class="level-icon">👑</div>
-                <h4>Expert/Pro</h4>
-                <p>Perform for money</p>
+                <h4>Grand Master</h4>
+                <p>Perform for pay</p>
             </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://ai-magic-mentor.pages.dev/" target="_blank" class="cta-button">
+                🎩 Open the Grimoire
+            </a>
         </div>
     </section>
     
-    <section class="cta" id="pricing">
-        <h2>Begin Your Magical Journey</h2>
-        <p>Join aspiring magicians learning the art of astonishment with AI guidance.</p>
-        <a href="https://ai-magic-mentor.pages.dev/" class="btn btn-primary">Open App Free →</a>
-    </section>
-    
     <footer>
-        <p>© 2026 AI Magic Mentor • Built for the Art of Astonishment</p>
+        <p>© 2026 AI Magic Mentor — For those who seek to ASTONISH.</p>
     </footer>
-    
-    <script>
-        // Generate stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 50; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.opacity = Math.random() * 0.5 + 0.3;
-            starsContainer.appendChild(star);
-        }
-    </script>
 </body>
 </html>
